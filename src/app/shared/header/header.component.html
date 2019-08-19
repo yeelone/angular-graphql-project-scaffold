@@ -1,0 +1,29 @@
+<div class="header">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>题库管理台</span>
+        <span class="example-fill-remaining-space"></span>
+        <span class="align-center"></span>
+        <div class="example-spacer">
+            <a mat-raised-button  href="admin/dashboard">Dashboard</a>
+            <a mat-raised-button class="btn-yellow" href="admin/users">用户</a>
+            <a mat-raised-button class="btn-yellow" href="admin/role">角色</a>
+            <a mat-raised-button class="btn-yellow" href="admin/group">组</a>
+            <a mat-raised-button class="btn-yellow" href="admin/config">配置</a>
+        </div>
+
+        <ng-container *ngIf="currentUser">
+            {{ currentUser.username }} 
+        </ng-container>
+        
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        
+        <mat-menu #menu="matMenu" class="profile-menu">
+          <button mat-menu-item (click)="openDialog()">修改密码</button>
+          <button mat-menu-item (click)="logout()">注销</button>
+        </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
